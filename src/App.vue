@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <Header title="Reminder"/>
-    <Tasks @delete-task="deleteTask" :tasks = 'tasks' />
+    <AddTask @add-task="addTask"/>
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks = 'tasks' />
     
   <Button/>
   </div>
@@ -10,12 +11,14 @@
 <script>
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data() {
     return {
@@ -23,15 +26,23 @@ export default {
     }
   },
   methods: {
+    addTask(task) {
+      this.tasks = [...this.tasks, task];
+    },
     deleteTask(id) {
-      console.log('task', id);
+      if(confirm("Are you sure to delete the task?")) {
+        this.tasks = this.tasks.filter((task) => task.id !== id)
+      }
+    },
+    toggleReminder(id) {
+        this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
     }
   },
   created() {
     this.tasks = [
-      {id:1, text:'Working on soft skills', day:'01.12.2021', time: 'at 10.00 am', reminder : true},
-      {id:2, text:'Teaching English', day:'01.12.2021', time: 'at 7.00 am', reminder : false},
-      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm', reminder : true}
+      {id:1, text:'Working on soft skills', day:'01.12.2021', time: 'at 10.00 am Monday', reminder : true},
+      {id:2, text:'Teaching English', day:'01.12.2021', time: 'at 7.00 am Wednesday', reminder : false},
+      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm Friday', reminder : true}
     ]
   }
 }
