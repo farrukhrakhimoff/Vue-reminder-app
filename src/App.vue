@@ -1,28 +1,36 @@
 <template>
   <div class="container">
     <Header title="Reminder"/>
+    <Tasks @delete-task="deleteTask" :tasks = 'tasks' />
   <Button/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import Tasks from './components/Tasks'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Tasks
   },
   data() {
     return {
       tasks : []
     }
   },
+  methods: {
+    deleteTask(id){
+      console.log('task', id);  
+    }
+  },
   created() {
     this.tasks = [
       {id:1, text:'Working on soft skills', day:'01.12.2021', time: 'at 10.00 am', reminder : true},
       {id:2, text:'Teaching English', day:'01.12.2021', time: 'at 7.00 am', reminder : true},
-      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm', reminder : true}
+      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm', reminder : false}
     ]
   }
 }
