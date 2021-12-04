@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <Header title="Reminder"/>
+  <Button/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import Button from './components/Button'
+
+
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Button
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppings", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+.container{
+  max-width: 50rem;
+  margin: 30px auto;
+  min-height: 50rem;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
 }
 </style>
