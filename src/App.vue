@@ -12,9 +12,34 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+  data() {
+    return {
+      tasks : []
+    }
+  },
+  created() {
+    this.tasks = [
+      {id:1, text:'Working on soft skills', day:'01.12.2021', time: 'at 10.00 am', reminder : true},
+      {id:2, text:'Teaching English', day:'01.12.2021', time: 'at 7.00 am', reminder : true},
+      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm', reminder : true}
+    ]
   }
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
