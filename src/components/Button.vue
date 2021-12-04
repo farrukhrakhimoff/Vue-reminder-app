@@ -1,5 +1,5 @@
 <template>
-    <button v-on:click="onClick()" :style="{background: color, color: textColor}" class="btn">{{text}}</button>
+    <button v-on:click = "onClick()" :style="{background: color , color: textColor}" class="btn">{{ text }}</button>
 </template>
 
 <script>
@@ -11,8 +11,8 @@ export default {
         textColor : String
     },
     methods : {
-        onClick(){
-            console.log("Ishladi!");
+        onClick() {
+            console.log("Click");
         }
     }
     
