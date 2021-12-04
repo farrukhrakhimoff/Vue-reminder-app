@@ -1,13 +1,13 @@
 <template>
-     <div class="container-fluid">
+     <!-- <div class="container-fluid"> -->
             <div :class="[task.reminder ? 'reminder' : '', 'task']">
                 <h3>
                 {{ task.text }}
-                <i @click="onDelete(task.time)" class="fas fa-times"></i>
+                <i v-on:click ="onDelete(task.id)" class="fas fa-times red"></i>
                 </h3>
                 <p>{{task.time}}</p>
             </div>
-        </div>
+        <!-- </div> -->
 </template>
 
 <script>
@@ -17,8 +17,8 @@ export default {
         task : Object
     },
     methods: {
-        onDelete(time) {
-            console.log(time);
+        onDelete(id) {
+            this.$emit('delete-task', id)
         }
     }
 }
@@ -26,6 +26,9 @@ export default {
 
 
 <style scoped>
+    .red {
+        color: red;
+    }
     .task {
         background-color: #f4f4f4;
         margin: .5rem;
@@ -39,9 +42,6 @@ export default {
         display: flex;
         align-content: center;
         justify-content: space-between;
-    }
-    .fa-times {
-        color: red;
     }
 
 </style>
