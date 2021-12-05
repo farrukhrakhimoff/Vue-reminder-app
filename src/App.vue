@@ -3,7 +3,6 @@
     <Header title="Reminder"/>
     <AddTask @add-task="addTask"/>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks = 'tasks' />
-    
   <Button/>
   </div>
 </template>
@@ -40,9 +39,9 @@ export default {
   },
   created() {
     this.tasks = [
-      {id:1, text:'Working on soft skills', day:'01.12.2021', time: 'at 10.00 am Monday', reminder : true},
-      {id:2, text:'Teaching English', day:'01.12.2021', time: 'at 7.00 am Wednesday', reminder : false},
-      {id:3, text:'Teaching Javascript', day:'01.12.2021', time: 'at 9.00 pm Friday', reminder : true}
+      {id:1, text:'Working on soft skills', day:'at 10.00 am Monday', reminder : true},
+      {id:2, text:'Teaching English', day:'at 7.00 am Wednesday', reminder : false},
+      {id:3, text:'Teaching Javascript', day:'at 9.00 pm Friday', reminder : true}
     ]
   }
 }
